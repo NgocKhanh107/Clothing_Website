@@ -4,8 +4,8 @@
   - Spring Boot, Spring Security, JPA / Hibernate
 * Front-End:
   - HTML/CSS, Bootstrap
- # Programming Tools: IntelliJ IDEA
- # Database: Microsoft SQL Server
+ * Programming Tools: IntelliJ IDEA
+ * Database: Microsoft SQL Server
  # Công nghệ sử dụng
  * Chức năng người dùng: 
     - Xem danh sách phân trang sản phẩm 
