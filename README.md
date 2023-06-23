@@ -25,19 +25,23 @@
     - Quản lý hóa đơn, quản lý tài khoản
   # Demo
   * Trang chủ
-    ![index1](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/7e18baf7-debc-4d61-aabd-42d36105d90c)
-    ![index2](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/91a7cad1-4fa5-4efb-ad12-c23fa1e7a229)
-    ![index3](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/56b79cd8-a3c0-4965-bb66-3d65113fdf64)
+    ![index1](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/01f39a4a-1f5e-47ec-8c78-a499737c1f43)
+    ![index2](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/ce5ae036-4d19-479b-9b54-3aa79814fc21)
+    ![index3](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/ee08d3b3-6790-4317-910a-3eaefaab4e05)
+
 
   * Danh sách sản phẩm
     
-    ![ctsp](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/c763f441-aeab-4e89-802c-5bc1f7fdea5a)
+    ![ctsp](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/827e5053-0da4-4d32-bbc4-2fce85767e59)
+
   * Chi tiết sản phẩm
   
-    ![ctsp2](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/78847630-937b-4e96-bd8c-2979ffb2fd55)
+    ![ctsp2](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/56a5fdbc-2c7e-4d50-9fed-5f139fa78884)
+
   
   * Giỏ hàng
     
-    ![giohang](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/dbf7cf34-caa3-45a6-a49d-eb1c4b8698d8)
+   ![giohang](https://github.com/NgocKhanh107/Clothing_Website/assets/109933771/1de23a3b-2f19-4ae1-91c1-2168b9dfc715)
+
 
   
