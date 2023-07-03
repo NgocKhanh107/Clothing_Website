@@ -62,7 +62,7 @@ public class AddressController {
 	@GetMapping("/shop/checkout")
 	public String index(Model model) {
 //		Users user = sessionService.get("userLogin");
-		Address address = dao.getAddress(22);
+		Address address = dao.findByUser_Id(22);
 		AddressModel entity = new AddressModel();
 		if (address != null) {
 			entity.setFirstname(address.getFirstname());
@@ -85,7 +85,7 @@ public class AddressController {
 		} else {
 			Users user = sessionService.get("userLogin");
 //			Users user = userRepo.findId(22);
-			Address address = dao.getAddress(user.getId());
+			Address address = dao.findByUser_Id(user.getId());
 			if (address == null) {
 				address = new Address(entity.getFirstname(), entity.getLastname(), entity.getEmail(), entity.getPhone(),
 						entity.getProvincial(), entity.getAddress(), user);
@@ -105,7 +105,7 @@ public class AddressController {
 			String strDate = formatter.format(date);
 			while (true) {
 				code = (int) Math.floor(((Math.random() * 899999) + 100000));
-				List<Order> list = orderDao.getOrderByName(String.valueOf(code));
+				List<Order> list = orderDao.findByNameLike(String.valueOf(code));
 				if (list.isEmpty()) {
 					break;
 				}

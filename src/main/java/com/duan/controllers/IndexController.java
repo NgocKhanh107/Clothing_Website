@@ -45,7 +45,7 @@ public class IndexController {
        Users entity = dao.findByEmail(loginedUser.getUsername());
 
         sessionService.set("userLogin", entity);
-        int count = favoriteDao.countFavorite(entity.getId());
+        int count = favoriteDao.countFavoritesByUser_Id(entity.getId());
         sessionService.set("countFavorite", count);
 
         return "user/index";
@@ -63,12 +63,12 @@ public class IndexController {
     }
     @ModelAttribute("dates")
     public List<Product> fillDate(Model model) {
-        List<Product> list = productDao.fillDateDESC();
+        List<Product> list = productDao.findTop8ByStatusOrderByManuDayDesc(true);
         return list;
     }
     @ModelAttribute("views")
     public List<Product> fillViews(Model model) {
-        List<Product> list = productDao.fillViewsDESC();
+        List<Product> list = productDao.findTop8ByStatusOrderByViewsDesc(true);
         return list;
     }
 

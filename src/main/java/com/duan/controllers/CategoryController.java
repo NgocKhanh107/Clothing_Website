@@ -49,7 +49,7 @@ public class CategoryController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Category> page = dao.fillToTable("%" + findName + "%", pageable);
+        Page<Category> page = dao.findByNameLike("%" + findName + "%", pageable);
         model.addAttribute("userItem", page);
 
         return "manager/categoryTable";

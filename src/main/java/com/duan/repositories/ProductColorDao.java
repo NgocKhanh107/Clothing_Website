@@ -8,12 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ProductColorDao extends JpaRepository<ProductColor,Integer> {
-    @Query("SELECT new ProductColor (p.color) FROM ProductColor p WHERE p.product.id IN (SELECT pc.product.id FROM ProductCate pc WHERE pc.category.id = ?1) GROUP BY p.color")
+    @Query("SELECT new ProductColor (p.color) FROM ProductColor p WHERE p.product.id " +
+            "IN (SELECT pc.product.id FROM ProductCate pc WHERE pc.category.id = ?1) GROUP BY p.color")
     List<ProductColor> getColor(int number);
 
-    @Query("SELECT p FROM ProductColor p WHERE p.product.id = ?1")
-    List<ProductColor> getLoadImage(int number);
+    List<ProductColor> findByProduct_Id(Integer id);
 
-    @Query("SELECT p FROM ProductColor p WHERE p.product.id = ?1")
-    List<ProductColor> getColorProduct(int number);
 }

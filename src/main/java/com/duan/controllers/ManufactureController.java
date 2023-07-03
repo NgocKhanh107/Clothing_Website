@@ -50,7 +50,7 @@ public class ManufactureController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Manufacture> page = dao.fillToTable("%" + findName + "%", pageable);
+        Page<Manufacture> page = dao.findByNameLike("%" + findName + "%", pageable);
         model.addAttribute("manuItem", page);
 
         return "manager/manuTable";

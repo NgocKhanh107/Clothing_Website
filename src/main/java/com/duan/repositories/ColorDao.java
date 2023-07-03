@@ -6,9 +6,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
 
 
 public interface ColorDao extends JpaRepository<Color, Integer> {
-	@Query("SELECT c FROM Color c WHERE c.name LIKE ?1")
-	Page<Color> fillToTable(String name, Pageable pageable);
+
+	Page<Color> findByNameLike(String name, Pageable pageable);
+
 }

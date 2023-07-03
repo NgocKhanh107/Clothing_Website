@@ -49,7 +49,7 @@ public class SizeController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Size> page = dao.fillToTable("%" + findName + "%", pageable);
+        Page<Size> page = dao.findByNameLike("%" + findName + "%", pageable);
         model.addAttribute("sizeItem", page);
 
         return "manager/sizeTable";

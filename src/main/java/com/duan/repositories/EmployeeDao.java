@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface EmployeeDao extends JpaRepository<Employee,Integer> {
-    @Query("SELECT new Employee(e.position,e.startDay,e.user,e.id) FROM Employee e ")
-    Page<Employee> fillToTable(String fullname, Pageable pageable);
+
+    Page<Employee> findAllBy(Pageable pageable);
 }

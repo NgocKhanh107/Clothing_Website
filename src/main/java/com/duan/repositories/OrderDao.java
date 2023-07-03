@@ -13,19 +13,15 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface OrderDao extends JpaRepository<Order, Integer>{
-	@Query("SELECT o FROM Order o WHERE o.name LIKE ?1")
-	List<Order> getOrderByName(String name);
+
+	List<Order> findByNameLike(String name);
 	
-	@Query("SELECT new OrderModel(o.name, o.date, sum(o.product.price * o.quality), o.status) FROM Order o WHERE o.address.user.id = ?1 GROUP BY o.name, o.date, o.status")
+	@Query("SELECT new OrderModel(o.name, o.date, sum(o.product.price * o.quality), o.status) FROM Order o " +
+			"WHERE o.address.user.id = ?1 GROUP BY o.name, o.date, o.status")
 	List<OrderModel> getOrderModel(int id);
 
-//	@Query("SELECT new OrderModel(o.name, o.date, sum(o.product.price * o.quality), o.status) FROM Order o WHERE o.status = 0 AND o.name LIKE ?1 GROUP BY o.name, o.date, o.status ORDER BY o.date ASC")
-//	Page<OrderModel> fillTableWOrder(String name, Pageable pageable);
-
-	@Query("SELECT new OrderModel(o.name, o.date, sum(o.product.price * o.quality), o.status) FROM Order o WHERE o.name LIKE ?1 GROUP BY o.name, o.date, o.status ORDER BY o.date ASC")
+	@Query("SELECT new OrderModel(o.name, o.date, sum(o.product.price * o.quality), o.status) " +
+			"FROM Order o WHERE o.name LIKE ?1 GROUP BY o.name, o.date, o.status ORDER BY o.date ASC")
 	Page<OrderModel> fillTableWOrder2(String name, Pageable pageable);
-//
-//
-//	@Query("SELECT new StatisOrder(o.product, count(o)) FROM Order o WHERE o.product.name Like ?1 GROUP BY o.product ")
-//	Page<StatisOrder> fillToTable(String name, Pageable pageable);
+
 }

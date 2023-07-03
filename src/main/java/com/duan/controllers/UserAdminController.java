@@ -65,14 +65,14 @@ public class UserAdminController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Users> list = dao.fillUser("%"+findName+"%", pageable);
+        Page<Users> list = dao.findByRole_IdAndUser_Fullname(22,"%"+findName+"%", pageable);
         model.addAttribute("userItem", list);
         return "manager/userTable";
     }
     @GetMapping("edit/employee/{id}")
     public String edit(Model model, @PathVariable("id") int id) {
         Role role = roleDao.getOne(1);
-        UserRole userRole = userRoleDao.getById(userRoleDao.findIdUserRole(id));
+        UserRole userRole = userRoleDao.getById(userRoleDao.findByUser_Id(id));
         userRole.setRole(role);
         userRoleDao.save(userRole);
 

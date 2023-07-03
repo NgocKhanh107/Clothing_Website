@@ -9,19 +9,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface userRepo extends JpaRepository<Users, Integer> {
-    @Query("SELECT u FROM Users u WHERE u.email = :uemail")
-    Users findByEmail(@Param("uemail") String email);
 
-    @Query("SELECT u FROM Users u WHERE u.id = :id")
-    Users findId(@Param("id") Integer id);
+    Users findByEmail(String email);
 
-    @Query("SELECT u.fullname FROM Users u WHERE u.email = :uemail")
-    String findFullName(@Param("uemail") String email);
+    Optional<Users> findById(Integer id);
 
-    @Query("SELECT u FROM Users u WHERE u.fullname LIKE ?1")
-    Page<Users> findByNamePage(String fullname, Pageable pageable);
+    String findFullNameByEmail(String email);
+
+    Page<Users> findByFullnameLike(String fullname, Pageable pageable);
 
     @Query("SELECT u.user FROM UserRole u WHERE u.role.id = 2 AND u.user.fullname LIKE ?1")
-    Page<Users> fillUser(String fullname, Pageable pageable);
+    Page<Users> findByRole_IdAndUser_Fullname(int id,String fullname, Pageable pageable);
+
+
 }

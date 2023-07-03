@@ -9,6 +9,5 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface SizeDao extends JpaRepository<Size, Integer> {
-	@Query("SELECT s FROM Size s WHERE s.name LIKE ?1")
-	Page<Size> fillToTable(String name, Pageable pageable);
+	Page<Size> findByNameLike(String name, Pageable pageable);
 }

@@ -46,7 +46,7 @@ public class ColorController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Color> page = dao.fillToTable("%" + findName + "%", pageable);
+        Page<Color> page = dao.findByNameLike("%" + findName + "%", pageable);
         model.addAttribute("colorItem", page);
 
         return "manager/colorTable";

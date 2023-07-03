@@ -51,8 +51,8 @@ public class DetailController {
          * DetailModel entity = new DetailModel(); model.addAttribute("detail", entity);
          */
 
-        List<ProductSize> list = productsizeDao.getSizeProduct(id);
-        List<ProductColor> list2 = productcolorDao.getLoadImage(id);
+        List<ProductSize> list = productsizeDao.findByProduct_Id(id);
+        List<ProductColor> list2 = productcolorDao.findByProduct_Id(id);
 
 
         if(!list2.isEmpty()) {
@@ -111,7 +111,7 @@ public class DetailController {
 
     @ModelAttribute("loadMultiImage")
     public List<ProductColor> loadMultiImage(@PathVariable("id") int id, Model model){
-        List<ProductColor> list = productcolorDao.getLoadImage(id);
+        List<ProductColor> list = productcolorDao.findByProduct_Id(id);
         return list;
     }
 
@@ -129,12 +129,12 @@ public class DetailController {
 
     @ModelAttribute("loadMultiSize")
     public List<ProductSize> loadMultiSize(@PathVariable("id") int id){
-        List<ProductSize> list = productsizeDao.getSizeProduct(id);
+        List<ProductSize> list = productsizeDao.findByProduct_Id(id);
         return list;
     }
     @ModelAttribute("loadMultiColor")
     public List<ProductColor> loadMultiColor(@PathVariable("id") int id){
-        List<ProductColor> list = productcolorDao.getColorProduct(id);
+        List<ProductColor> list = productcolorDao.findByProduct_Id(id);
         return list;
     }
     @ModelAttribute("category")

@@ -41,15 +41,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		
 	//	System.out.println("Found User: "+appUser);
 		
-		List<String> roleNames = this.roleDao.getRoleNames(appUser.getId());
+//		List<String> roleNames = this.roleDao.findRoleNameByUser_Id(appUser.getId());
 		List<GrantedAuthority> grandList = new ArrayList<GrantedAuthority>();
 		
-		if(roleNames!=null) {
-			for(String role: roleNames) {
-				GrantedAuthority authority = new SimpleGrantedAuthority(role);
-				grandList.add(authority);
-			}
-		}
+//		if(roleNames!=null) {
+//			for(String role: roleNames) {
+//				GrantedAuthority authority = new SimpleGrantedAuthority(role);
+//				grandList.add(authority);
+//			}
+//		}
 		
 		UserDetails userDetails = (UserDetails) new User(appUser.getEmail(), appUser.getPassword(), grandList);
 		

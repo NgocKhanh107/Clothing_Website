@@ -50,7 +50,7 @@ public class AdminOrderController {
 
     @GetMapping("wait/send/{name}")
     public String send(Model model, @PathVariable("name") String name) {
-        List<Order> list = orderDao.getOrderByName(name);
+        List<Order> list = orderDao.findByNameLike(name);
         for(Order o: list) {
             o.setStatus(true);
             orderDao.save(o);
@@ -59,7 +59,7 @@ public class AdminOrderController {
     }
     @GetMapping("/admin/orderDetail/{name}")
     public String detail(Model model, @PathVariable("name") String name) {
-        List<Order> list = orderDao.getOrderByName(name);
+        List<Order> list = orderDao.findByNameLike(name);
         model.addAttribute("orderDetail", list);
         model.addAttribute("location", 0);
         return "manager/orderDetail";

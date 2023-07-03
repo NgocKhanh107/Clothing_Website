@@ -60,7 +60,7 @@ public class EmployeeAdminController {
 	@RequestMapping("list/delete/{employeeId}/{userId}")
 	public String delete(Model model, @PathVariable("employeeId") int eid, @PathVariable("userId") int uid) {
 		Role role = roleDao.getOne(2);
-		UserRole userRole = userRoleDao.getById(userRoleDao.findIdUserRole(uid));
+		UserRole userRole = userRoleDao.getById(userRoleDao.findByUser_Id(uid));
 		userRole.setRole(role);
 		userRoleDao.save(userRole);
 

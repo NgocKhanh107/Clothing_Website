@@ -55,7 +55,7 @@ public class ProductAdminController {
 
         Pageable pageable = PageRequest.of(p.orElse(0), 5);
 
-        Page<Product> page = productDao.fillToTable("%" + findName + "%", pageable);
+        Page<Product> page = productDao.findByNameLike("%" + findName + "%", pageable);
         model.addAttribute("productItem", page);
 
         return "manager/productTable";
